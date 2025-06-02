@@ -12,6 +12,7 @@ const FloatingImage = React.lazy(() => import('./components/FloatingImage'));
 const Footer = React.lazy(() => import('./components/Footer'));
 const ProductsPage = React.lazy(() => import('./pages/Products'));
 const ProductDetail = React.lazy(() => import('./pages/Products/ProductDetail'));
+const NewsDetail = React.lazy(() => import('./pages/News/NewsDetail'));
 const LogoSlider = React.lazy(() => import('./components/LogoSlider'));
 const Nosotros = React.lazy(() => import('./pageNosotros/Nosotros'));
 const ScrollToTop = React.lazy(() => import('./components/ScrollToTop'));
@@ -57,6 +58,7 @@ function App() {
             />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:id" element={<ProductDetail />} />
+            <Route path="/news/:id" element={<NewsDetail />} />
             <Route path="/nosotros" element={<Nosotros />} />
           </Routes>
           <Footer />
