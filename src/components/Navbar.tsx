@@ -54,7 +54,6 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-8">
             <a href="/" className="text-white hover:text-blue-200 transition text-xl font-sans">Inicio</a>
             <Link to="/products" className="text-white hover:text-blue-200 transition text-xl font-sans">Nuestros Productos</Link>
-            <a href="/nosotros" className="text-white hover:text-blue-200 transition text-xl font-sans">Nosotros</a>
             
             {/* About Dropdown */}
             <div className="relative group text-xl font-sans">
@@ -115,13 +114,6 @@ const Navbar = () => {
               >
                 Nuestros Servicios
               </Link>
-              <a 
-                href="/" 
-                className="text-white hover:text-blue-200 transition text-lg"
-                onClick={() => setIsOpen(false)}
-              >
-                Nosotros
-              </a>
               
               {/* Mobile About Dropdown */}
               <div className="relative">
