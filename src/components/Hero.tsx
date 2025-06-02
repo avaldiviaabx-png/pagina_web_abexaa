@@ -65,15 +65,15 @@ const Hero = () => {
           <img
             src={img}
             alt={`Slide ${index + 1}`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover md:object-fill"
             loading="lazy"
           />
         </div>
       ))}
       <div className="h-[75vh] flex items-center justify-center text-center">
-        <div className="max-w-3xl px-6">
+        <div className="max-w-3xl px-4 md:px-6">
           <h1
-            className="text-5xl md:text-6xl font-bold text-white mb-6 opacity-0 translate-y-8 animate-fade-up"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 opacity-0 translate-y-8 animate-fade-up"
             style={{ textShadow: "2px 2px 8px rgba(0, 0, 0, 0.8)" }}
           >
             "SOLUCIONES TECNOLOGICAS
@@ -81,7 +81,7 @@ const Hero = () => {
             PENSADAS EN EL TRANSPORTE DE LOS PERUANOS"
           </h1>
           <p
-            className="text-xl text-white/90 opacity-0 translate-y-8 animate-fade-up animation-delay-200"
+            className="text-lg md:text-xl text-white/90 opacity-0 translate-y-8 animate-fade-up animation-delay-200"
             style={{ textShadow: "1px 1px 5px rgba(0, 0, 0, 0.6)" }}
           >
             ABEXA - Confiamos en Dios
