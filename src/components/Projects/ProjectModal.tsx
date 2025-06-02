@@ -47,10 +47,10 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
       onClick={onClose}
     >
       <div 
-        className="bg-white rounded-2xl overflow-hidden w-full max-w-3xl my-4 shadow-2xl transform transition-all duration-300"
+        className="bg-white rounded-2xl overflow-hidden w-full max-w-2xl my-4 shadow-2xl transform transition-all duration-300"
         onClick={e => e.stopPropagation()}
       >
-        <div className="relative p-4 sm:p-6">
+        <div className="relative p-4">
           <button 
             onClick={onClose}
             className="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors z-10"
@@ -59,28 +59,27 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
           </button>
 
           <div className="flex flex-col items-center space-y-4">
-            {/* Main image */}
-            <div className="w-full h-48 sm:h-56 relative rounded-lg overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            </div>
-
-            {/* Title and description */}
-            <div className="text-center">
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">{project.title}</h2>
-              <p className="text-gray-600 text-sm">{project.description}</p>
+            {/* Main image and title section */}
+            <div className="flex items-center space-x-4 w-full">
+              <div className="w-32 h-32 flex-shrink-0 rounded-lg overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h2>
+                <p className="text-gray-600 text-sm">{project.description}</p>
+              </div>
             </div>
 
             {/* Related images */}
             <div className="w-full">
-              <h3 className="text-lg font-semibold mb-3 text-center">Imágenes relacionadas</h3>
-              <div className="grid grid-cols-3 gap-2 sm:gap-3">
+              <h3 className="text-sm font-semibold mb-2">Imágenes relacionadas</h3>
+              <div className="grid grid-cols-3 gap-2">
                 {relatedImages.map((img, index) => (
-                  <div key={index} className="h-24 sm:h-28 rounded-lg overflow-hidden shadow-md">
+                  <div key={index} className="h-20 rounded-lg overflow-hidden shadow-sm">
                     <img
                       src={img}
                       alt={`Related ${index + 1}`}
@@ -92,25 +91,25 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
             </div>
 
             {/* Content */}
-            <div className="w-full bg-gray-50 rounded-xl p-4">
-              <h3 className="text-lg font-semibold mb-2 text-center">Detalles</h3>
-              <p className="text-gray-700 text-sm text-center">{project.content}</p>
+            <div className="w-full bg-gray-50 rounded-lg p-3">
+              <h3 className="text-sm font-semibold mb-2">Detalles</h3>
+              <p className="text-gray-700 text-sm">{project.content}</p>
             </div>
 
             {/* Additional information */}
-            <div className="w-full bg-blue-50 rounded-xl p-4">
-              <h3 className="text-lg font-semibold mb-3 text-center">Información adicional</h3>
-              <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                <div className="flex items-center text-gray-700 text-sm">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+            <div className="w-full bg-blue-50 rounded-lg p-3">
+              <h3 className="text-sm font-semibold mb-2">Información adicional</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+                <div className="flex items-center text-gray-700">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-1.5"></span>
                   Actualizado recientemente
                 </div>
-                <div className="flex items-center text-gray-700 text-sm">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                <div className="flex items-center text-gray-700">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-1.5"></span>
                   Disponible para consultas
                 </div>
-                <div className="flex items-center text-gray-700 text-sm">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                <div className="flex items-center text-gray-700">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-1.5"></span>
                   Soporte técnico incluido
                 </div>
               </div>
