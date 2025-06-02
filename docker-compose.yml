@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+  landingpage-web-abexa:
+    container_name: landingpage-web-abexa
+    image: registry.gitlab.com/hcerna.abx/landingpage-web-abexa
+    ports:
+      - "30048:3000"
+    restart: always
+
+# CONSTRUIR LA IMAGEN DOCKER
+# docker build -t registry.gitlab.com/bfernandez.abx/beex.manager.web .
+
+# SUBIR LA IMAGEN DOCKER 
+# docker push registry.gitlab.com/bfernandez.abx/beex.manager.web
+
+
+
+
+
+
+
+
+
+
+

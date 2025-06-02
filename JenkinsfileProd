@@ -1,0 +1,34 @@
+//@Library('JenkinsSharedLibrary')
+@Library(['JenkinsSharedLibraryOfficialV2'])
+
+import org.jenkinsci.plugins.workflow.steps.*
+
+def deployPath = "/devops/deploy-prod.yaml"
+
+node('master-node-kubernetes-agent-prod'){
+    
+    stage('Clone Project') {
+        deleteDir()
+        checkout scm
+        sh 'ls -l'
+        echo "Rama : ${gitUtils.getGitBranchName()}"
+        echo "Repo URL : ${gitUtils.getGitUrl()}"
+    }
+
+    stage('Check and Read Files') {
+        // obtener la ruta actual
+        def projectName = deployUtils.readAndCheckConfigurationFiles(deployPath)
+        echo "project Name : $projectName"
+    }
+
+
+    stage('Delivery') {
+        deployUtils.deployToArtifactory(deployPath)
+    }
+
+    stage('Deploy') {
+        // compilar el proyecto
+        deployUtils.generateAndDeployWithKubernetes(deployPath)
+    }
+    
+}
