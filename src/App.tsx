@@ -1,9 +1,9 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import Preloader from './components/Preloader';
 
 // Lazy load components
+const Navbar = React.lazy(() => import('./components/Navbar'));
 const Hero = React.lazy(() => import('./components/Hero'));
 const Testimonials = React.lazy(() => import('./components/Testimonials'));
 const Projects = React.lazy(() => import('./components/Projects'));
@@ -20,7 +20,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading of resources
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -28,13 +27,16 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  if (isLoading) {
+    return <Preloader isLoading={isLoading} />;
+  }
+
   return (
     <Router>
-      <ScrollToTop />
-      <Preloader isLoading={isLoading} />
-      <div className="min-h-screen">
-        <Navbar />
-        <Suspense fallback={<div className="min-h-screen bg-gray-50"></div>}>
+      <Suspense fallback={<Preloader isLoading={true} />}>
+        <ScrollToTop />
+        <div className="min-h-screen">
+          <Navbar />
           <Routes>
             <Route
               path="/"
@@ -53,8 +55,8 @@ function App() {
             <Route path="/nosotros" element={<Nosotros />} />
           </Routes>
           <Footer />
-        </Suspense>
-      </div>
+        </div>
+      </Suspense>
     </Router>
   );
 }
