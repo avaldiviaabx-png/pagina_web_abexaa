@@ -10,7 +10,7 @@ const Testimonials = () => {
           alt="Background"
           className="w-full h-full object-cover md:object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70 md:bg-transparent" />
+        <div className="absolute inset-0  md:bg-transparent" />
       </div>
       
       <div className="relative container mx-auto px-4 md:px-6 pb-20 md:pb-40">
