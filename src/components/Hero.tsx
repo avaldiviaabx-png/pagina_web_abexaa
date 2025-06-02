@@ -44,7 +44,7 @@ const Hero = () => {
 
   if (!imagesLoaded) {
     return (
-      <div className="h-screen bg-gray-100 flex items-center justify-center">
+      <div className="h-[75vh] bg-gray-100 flex items-center justify-center">
         <div className="animate-pulse">
           <div className="w-32 h-32 bg-gray-200 rounded-full"></div>
         </div>
@@ -53,7 +53,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative h-screen" id="home">
+    <section className="relative h-[75vh]" id="home">
       {images.map((img, index) => (
         <div
           key={img}
@@ -70,7 +70,7 @@ const Hero = () => {
           />
         </div>
       ))}
-      <div className="h-screen flex items-center justify-center text-center">
+      <div className="h-[75vh] flex items-center justify-center text-center">
         <div className="max-w-3xl px-6">
           <h1
             className="text-5xl md:text-6xl font-bold text-white mb-6 opacity-0 translate-y-8 animate-fade-up"
