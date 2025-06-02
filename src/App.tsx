@@ -17,15 +17,20 @@ const Nosotros = React.lazy(() => import('./pageNosotros/Nosotros'));
 const ScrollToTop = React.lazy(() => import('./components/ScrollToTop'));
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => {
+    return !localStorage.getItem('hasVisited');
+  });
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    if (isLoading) {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+        localStorage.setItem('hasVisited', 'true');
+      }, 2000);
 
-    return () => clearTimeout(timer);
-  }, []);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading]);
 
   if (isLoading) {
     return <Preloader isLoading={isLoading} />;
@@ -33,7 +38,7 @@ function App() {
 
   return (
     <Router>
-      <Suspense fallback={<Preloader isLoading={true} />}>
+      <Suspense fallback={<div className="min-h-screen bg-white" />}>
         <ScrollToTop />
         <div className="min-h-screen">
           <Navbar />
