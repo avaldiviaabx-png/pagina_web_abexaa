@@ -16,7 +16,7 @@ const ProductsPage = () => {
           />
           <div className="absolute inset-0 bg-blue-900/70" />
         </div>
-        <div className="relative h-[75vh] flex items-center justify-center text-center px-6 ">
+        <div className="relative h-[800px] flex items-center justify-center text-center px-6 ">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold text-sky-400 mb-4 animate-fade-up animation-delay-200 ">
             NUESTROS VALIDADORES
