@@ -25,6 +25,14 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <nav className="fixed w-screen bg-blue-600/70 backdrop-blur-sm z-50">
       <div className="container mx-auto px-4">
@@ -52,7 +60,13 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
-            <a href="/" className="text-white hover:text-blue-200 transition text-xl font-sans">Inicio</a>
+            <a 
+              href="#" 
+              onClick={scrollToTop} 
+              className="text-white hover:text-blue-200 transition text-xl font-sans"
+            >
+              Inicio
+            </a>
             <Link to="/products" className="text-white hover:text-blue-200 transition text-xl font-sans">Nuestros Productos</Link>
             
             {/* About Dropdown */}
@@ -107,6 +121,16 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden">
             <div className="flex flex-col space-y-4 pt-4 pb-3 px-4">
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  scrollToTop(e);
+                  setIsOpen(false);
+                }} 
+                className="text-white hover:text-blue-200 transition text-lg"
+              >
+                Inicio
+              </a>
               <Link 
                 to="/products"
                 className="text-white hover:text-blue-200 transition text-lg"
