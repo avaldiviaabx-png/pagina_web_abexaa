@@ -65,7 +65,7 @@ const Hero = () => {
           <img
             src={img}
             alt={`Slide ${index + 1}`}
-            className="w-full h-full object-cover md:object-fill"
+            className="w-full h-full object-cover md:object-cover"
             loading="lazy"
           />
         </div>
