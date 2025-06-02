@@ -12,7 +12,7 @@ const Preloader: React.FC<PreloaderProps> = ({ isLoading }) => {
       <img
         src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/5ad346a8-12a4-dc92-f032-7045234ab6e2.png"
         alt="Loading..."
-        className="w-32 h-32 animate-pulse"
+        className="w-40 h-40 animate-pulse"
       />
     </div>
   );
