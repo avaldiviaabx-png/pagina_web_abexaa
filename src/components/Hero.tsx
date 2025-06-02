@@ -44,7 +44,7 @@ const Hero = () => {
 
   if (!imagesLoaded) {
     return (
-      <div className="h-[75vh] bg-gray-100 flex items-center justify-center">
+      <div className="h-[65vh] bg-gray-100 flex items-center justify-center">
         <div className="animate-pulse">
           <div className="w-32 h-32 bg-gray-200 rounded-full"></div>
         </div>
