@@ -50,67 +50,69 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
         className="bg-white rounded-2xl overflow-hidden w-full max-w-2xl my-4 shadow-2xl transform transition-all duration-300"
         onClick={e => e.stopPropagation()}
       >
-        <div className="relative p-4">
+        <div className="p-6">
+          {/* Close Button */}
           <button 
             onClick={onClose}
-            className="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors z-10"
+            className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
           >
             <X className="w-5 h-5 text-gray-500" />
           </button>
 
-          <div className="flex flex-col items-center space-y-4">
-            {/* Main image and title section */}
-            <div className="flex items-center space-x-4 w-full">
-              <div className="w-32 h-32 flex-shrink-0 rounded-lg overflow-hidden">
+          {/* Main Content */}
+          <div className="space-y-6">
+            {/* Header Section */}
+            <div className="flex items-start gap-6">
+              <div className="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex-1">
-                <h2 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h2>
-                <p className="text-gray-600 text-sm">{project.description}</p>
+              <div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">{project.title}</h3>
+                <p className="text-gray-600">{project.description}</p>
               </div>
             </div>
 
-            {/* Related images */}
-            <div className="w-full">
-              <h3 className="text-sm font-semibold mb-2">Imágenes relacionadas</h3>
-              <div className="grid grid-cols-3 gap-2">
+            {/* Related Images Grid */}
+            <div className="bg-gray-50 rounded-xl p-4">
+              <h4 className="text-sm font-semibold text-gray-700 mb-3">Imágenes relacionadas</h4>
+              <div className="grid grid-cols-3 gap-3">
                 {relatedImages.map((img, index) => (
-                  <div key={index} className="h-20 rounded-lg overflow-hidden shadow-sm">
+                  <div key={index} className="aspect-square rounded-lg overflow-hidden shadow-sm">
                     <img
                       src={img}
                       alt={`Related ${index + 1}`}
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Content */}
-            <div className="w-full bg-gray-50 rounded-lg p-3">
-              <h3 className="text-sm font-semibold mb-2">Detalles</h3>
-              <p className="text-gray-700 text-sm">{project.content}</p>
+            {/* Details Section */}
+            <div className="bg-blue-50 rounded-xl p-4">
+              <h4 className="text-sm font-semibold text-gray-700 mb-2">Detalles</h4>
+              <p className="text-gray-600 text-sm">{project.content}</p>
             </div>
 
-            {/* Additional information */}
-            <div className="w-full bg-blue-50 rounded-lg p-3">
-              <h3 className="text-sm font-semibold mb-2">Información adicional</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
-                <div className="flex items-center text-gray-700">
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-1.5"></span>
-                  Actualizado recientemente
+            {/* Additional Information */}
+            <div className="bg-gray-50 rounded-xl p-4">
+              <h4 className="text-sm font-semibold text-gray-700 mb-3">Información adicional</h4>
+              <div className="grid grid-cols-3 gap-3">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span className="text-sm text-gray-600">Actualizado recientemente</span>
                 </div>
-                <div className="flex items-center text-gray-700">
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-1.5"></span>
-                  Disponible para consultas
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span className="text-sm text-gray-600">Disponible para consultas</span>
                 </div>
-                <div className="flex items-center text-gray-700">
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-1.5"></span>
-                  Soporte técnico incluido
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span className="text-sm text-gray-600">Soporte técnico incluido</span>
                 </div>
               </div>
             </div>
