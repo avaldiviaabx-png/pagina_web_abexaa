@@ -54,25 +54,24 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
           {/* Close Button */}
           <button 
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
+            className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors z-10"
           >
             <X className="w-5 h-5 text-gray-500" />
           </button>
 
           {/* Main Content */}
           <div className="space-y-6">
-            {/* Header Section */}
-            <div className="flex items-start gap-6">
-              <div className="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">{project.title}</h3>
-                <p className="text-gray-600">{project.description}</p>
+            {/* Header Section with Full Background Image */}
+            <div 
+              className="relative h-48 rounded-xl overflow-hidden bg-cover bg-center"
+              style={{ backgroundImage: `url(${project.image})` }}
+            >
+              <div className="absolute inset-0 bg-black/40"></div>
+              <div className="relative h-full flex items-end p-6">
+                <div className="text-white">
+                  <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                  <p className="text-white/90">{project.description}</p>
+                </div>
               </div>
             </div>
 
