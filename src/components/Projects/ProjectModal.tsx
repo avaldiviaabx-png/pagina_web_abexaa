@@ -67,37 +67,6 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
                 </div>
               </div>
             </div>
-
-            {/* Additional Information */}
-            <div className="bg-blue-50 rounded-xl p-6">
-              <h4 className="text-lg font-semibold text-blue-800 mb-4">Información Adicional</h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                  <span className="text-sm text-gray-700">Actualizado recientemente</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-sm text-gray-700">Disponible para consultas</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                  <span className="text-sm text-gray-700">Soporte técnico incluido</span>
-                </div>
-              </div>
-              
-              <div className="mt-6 p-4 bg-white rounded-lg">
-                <h5 className="font-semibold text-gray-800 mb-2">¿Necesitas más información?</h5>
-                <p className="text-sm text-gray-600 mb-3">
-                  Nuestro equipo está disponible para brindarte detalles adicionales sobre este proyecto y cómo puede beneficiar a tu organización.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Consultoría gratuita</span>
-                  <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs">Implementación rápida</span>
-                  <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">Soporte 24/7</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
