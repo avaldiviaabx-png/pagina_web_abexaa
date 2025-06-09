@@ -15,32 +15,6 @@ interface ProjectModalProps {
 const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
   if (!isOpen || !project) return null;
 
-  // Project-specific related images
-  const projectImages = {
-    'Comentarios de operadores': [
-      'https://mcusercontent.com/c379e3356454ef2a14873d293/images/6b90cf47-f7cf-7593-2e0e-6f7b511415be.jpg',
-      'https://mcusercontent.com/c379e3356454ef2a14873d293/images/be967ba2-c5ba-e582-9ec7-ae769793c3a9.jpeg',
-      'https://mcusercontent.com/c379e3356454ef2a14873d293/images/a5fb3f08-4552-bda3-83aa-3121e8216d67.jpg'
-    ],
-    'Empresas Afiliadas': [
-      'https://mcusercontent.com/c379e3356454ef2a14873d293/images/be967ba2-c5ba-e582-9ec7-ae769793c3a9.jpeg',
-      'https://mcusercontent.com/c379e3356454ef2a14873d293/images/49d69f8c-7465-58b5-1fca-e82e19a52af6.jpg',
-      'https://mcusercontent.com/c379e3356454ef2a14873d293/images/6b90cf47-f7cf-7593-2e0e-6f7b511415be.jpg'
-    ],
-    'Comentarios de Usuarios': [
-      'https://mcusercontent.com/c379e3356454ef2a14873d293/images/a5fb3f08-4552-bda3-83aa-3121e8216d67.jpg',
-      'https://mcusercontent.com/c379e3356454ef2a14873d293/images/49d69f8c-7465-58b5-1fca-e82e19a52af6.jpg',
-      'https://mcusercontent.com/c379e3356454ef2a14873d293/images/be967ba2-c5ba-e582-9ec7-ae769793c3a9.jpeg'
-    ],
-    'Descubre lo nuevo': [
-      'https://mcusercontent.com/c379e3356454ef2a14873d293/images/49d69f8c-7465-58b5-1fca-e82e19a52af6.jpg',
-      'https://mcusercontent.com/c379e3356454ef2a14873d293/images/a5fb3f08-4552-bda3-83aa-3121e8216d67.jpg',
-      'https://mcusercontent.com/c379e3356454ef2a14873d293/images/6b90cf47-f7cf-7593-2e0e-6f7b511415be.jpg'
-    ]
-  };
-
-  const relatedImages = projectImages[project.title as keyof typeof projectImages] || [];
-
   return (
     <div 
       className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
@@ -75,43 +49,52 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
               </div>
             </div>
 
-            {/* Related Images Grid */}
-            <div className="bg-gray-50 rounded-xl p-4">
-              <h4 className="text-sm font-semibold text-gray-700 mb-3">Imágenes relacionadas</h4>
-              <div className="grid grid-cols-3 gap-3">
-                {relatedImages.map((img, index) => (
-                  <div key={index} className="aspect-square rounded-lg overflow-hidden shadow-sm">
-                    <img
-                      src={img}
-                      alt={`Related ${index + 1}`}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
+            {/* Content Section */}
+            <div className="bg-gray-50 rounded-xl p-6">
+              <h4 className="text-lg font-semibold text-gray-800 mb-4">Contenido Destacado</h4>
+              <div className="space-y-4">
+                <p className="text-gray-700 leading-relaxed">{project.content}</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <h5 className="font-semibold text-blue-800 mb-2">Impacto</h5>
+                    <p className="text-sm text-gray-600">Mejorando la experiencia de transporte para miles de usuarios diariamente.</p>
                   </div>
-                ))}
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <h5 className="font-semibold text-blue-800 mb-2">Innovación</h5>
+                    <p className="text-sm text-gray-600">Implementando tecnología de vanguardia en el sector del transporte público.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Details Section */}
-            <div className="bg-blue-50 rounded-xl p-4">
-              <h4 className="text-sm font-semibold text-gray-700 mb-2">Detalles</h4>
-              <p className="text-gray-600 text-sm">{project.content}</p>
-            </div>
-
             {/* Additional Information */}
-            <div className="bg-gray-50 rounded-xl p-4">
-              <h4 className="text-sm font-semibold text-gray-700 mb-3">Información adicional</h4>
-              <div className="grid grid-cols-3 gap-3">
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-sm text-gray-600">Actualizado recientemente</span>
+            <div className="bg-blue-50 rounded-xl p-6">
+              <h4 className="text-lg font-semibold text-blue-800 mb-4">Información Adicional</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <span className="text-sm text-gray-700">Actualizado recientemente</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-sm text-gray-600">Disponible para consultas</span>
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span className="text-sm text-gray-700">Disponible para consultas</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-sm text-gray-600">Soporte técnico incluido</span>
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                  <span className="text-sm text-gray-700">Soporte técnico incluido</span>
+                </div>
+              </div>
+              
+              <div className="mt-6 p-4 bg-white rounded-lg">
+                <h5 className="font-semibold text-gray-800 mb-2">¿Necesitas más información?</h5>
+                <p className="text-sm text-gray-600 mb-3">
+                  Nuestro equipo está disponible para brindarte detalles adicionales sobre este proyecto y cómo puede beneficiar a tu organización.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Consultoría gratuita</span>
+                  <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs">Implementación rápida</span>
+                  <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">Soporte 24/7</span>
                 </div>
               </div>
             </div>
