@@ -45,7 +45,7 @@ const Nosotros = () => {
           <div className="relative">
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/d46350c2-57ef-66b5-a70a-a13e36a92f24.jpg"
+                src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/84f87aca-58cc-c1c4-eded-60d7110cf1b8.png"
                 alt="Equipo ABEXA Cloud"
                 className="w-full h-[400px] object-cover"
               />
