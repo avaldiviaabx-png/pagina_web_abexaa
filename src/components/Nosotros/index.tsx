@@ -47,7 +47,7 @@ const Nosotros = () => {
               <img
                 src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/84f87aca-58cc-c1c4-eded-60d7110cf1b8.png"
                 alt="Equipo ABEXA Cloud"
-                className="w-full h-[400px] object-cover"
+                className="w-full h-[400px] object-contain"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-xl shadow-lg">
