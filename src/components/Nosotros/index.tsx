@@ -1,55 +1,51 @@
 import React from 'react';
-import { Target, Users, Globe2, Award } from 'lucide-react';
 
 const Nosotros = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50" id="nosotros">
+    <section className="py-20 bg-white" id="nosotros">
       <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text text-transparent">
-            NOSOTROS
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Somos ABEXA Cloud, empresa peruana líder en soluciones tecnológicas 
-            para el transporte público, comprometidos con la innovación y excelencia.
-          </p>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          <div className="text-center">
-            <Users className="w-8 h-8 text-blue-600 mx-auto mb-3" />
-            <h3 className="text-2xl font-bold text-gray-800">50+</h3>
-            <p className="text-gray-600 text-sm">Profesionales</p>
-          </div>
-          <div className="text-center">
-            <Globe2 className="w-8 h-8 text-emerald-600 mx-auto mb-3" />
-            <h3 className="text-2xl font-bold text-gray-800">15+</h3>
-            <p className="text-gray-600 text-sm">Ciudades</p>
-          </div>
-          <div className="text-center">
-            <Award className="w-8 h-8 text-purple-600 mx-auto mb-3" />
-            <h3 className="text-2xl font-bold text-gray-800">100+</h3>
-            <p className="text-gray-600 text-sm">Empresas</p>
-          </div>
-          <div className="text-center">
-            <Target className="w-8 h-8 text-orange-600 mx-auto mb-3" />
-            <h3 className="text-2xl font-bold text-gray-800">10+</h3>
-            <p className="text-gray-600 text-sm">Años</p>
-          </div>
-        </div>
-
-        {/* Mission */}
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <Target className="w-12 h-12 text-blue-600 mx-auto mb-6" />
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Nuestra Misión</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Facilitar la movilidad urbana a través de soluciones tecnológicas innovadoras 
-              que optimicen la eficiencia del transporte público, mejorando la calidad de vida 
-              de las comunidades peruanas.
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <div>
+            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text text-transparent">
+              NOSOTROS
+            </h2>
+            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              Somos ABEXA Cloud, empresa peruana líder en soluciones tecnológicas 
+              para el transporte público. Con más de 10 años de experiencia, nos 
+              especializamos en desarrollar sistemas innovadores que optimizan la 
+              gestión de flotas vehiculares.
             </p>
+            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              Nuestro compromiso es facilitar la movilidad urbana a través de 
+              tecnología de vanguardia, mejorando la eficiencia del transporte 
+              público y la calidad de vida de las comunidades peruanas.
+            </p>
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-2xl font-bold text-blue-600">100+</h3>
+                <p className="text-gray-600">Empresas Atendidas</p>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-blue-600">15+</h3>
+                <p className="text-gray-600">Ciudades del Perú</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="relative">
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/d46350c2-57ef-66b5-a70a-a13e36a92f24.jpg"
+                alt="Equipo ABEXA Cloud"
+                className="w-full h-[400px] object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-xl shadow-lg">
+              <h4 className="text-xl font-bold">10+ Años</h4>
+              <p className="text-blue-100">de Experiencia</p>
+            </div>
           </div>
         </div>
       </div>
