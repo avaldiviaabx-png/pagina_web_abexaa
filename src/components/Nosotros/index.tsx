@@ -2,14 +2,22 @@ import React from 'react';
 
 const Nosotros = () => {
   return (
-    <section className="py-20 bg-white" id="nosotros">
+    <section className="py-24 bg-gray-50" id="nosotros">
       <div className="container mx-auto px-6">
+        {/* Section Title */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text text-transparent">
+            NOSOTROS
+          </h2>
+          <p className="text-xl text-gray-600">Conoce más sobre ABEXA Cloud</p>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div>
-            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text text-transparent">
-              NOSOTROS
-            </h2>
+            <h3 className="text-2xl font-bold mb-6 text-gray-800">
+              Líderes en Tecnología para el Transporte
+            </h3>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
               Somos ABEXA Cloud, empresa peruana líder en soluciones tecnológicas 
               para el transporte público. Con más de 10 años de experiencia, nos 
@@ -23,11 +31,11 @@ const Nosotros = () => {
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <h3 className="text-2xl font-bold text-blue-600">100+</h3>
+                <h4 className="text-2xl font-bold text-blue-600">100+</h4>
                 <p className="text-gray-600">Empresas Atendidas</p>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-blue-600">15+</h3>
+                <h4 className="text-2xl font-bold text-blue-600">15+</h4>
                 <p className="text-gray-600">Ciudades del Perú</p>
               </div>
             </div>
@@ -43,7 +51,7 @@ const Nosotros = () => {
               />
             </div>
             <div className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-xl shadow-lg">
-              <h4 className="text-xl font-bold">10+ Años</h4>
+              <h5 className="text-xl font-bold">10+ Años</h5>
               <p className="text-blue-100">de Experiencia</p>
             </div>
           </div>
