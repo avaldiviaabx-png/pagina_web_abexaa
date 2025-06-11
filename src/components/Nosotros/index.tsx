@@ -12,7 +12,7 @@ const Nosotros = () => {
           <p className="text-xl text-gray-600">Conoce más sobre ABEXA Cloud</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white rounded-2xl shadow-2xl p-8 lg:p-12 border border-gray-100">
           {/* Text Content */}
           <div>
             <h3 className="text-2xl font-bold mb-6 text-gray-800">
