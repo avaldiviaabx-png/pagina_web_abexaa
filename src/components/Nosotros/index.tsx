@@ -2,7 +2,7 @@ import React from 'react';
 
 const Nosotros = () => {
   return (
-    <section className="py-24 bg-gray-50" id="nosotros">
+    <section className="py-24 bg-white" id="nosotros">
       <div className="container mx-auto px-6">
         {/* Section Title */}
         <div className="text-center mb-16">
