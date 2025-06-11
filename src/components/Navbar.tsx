@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 const logos = [
@@ -11,6 +11,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [currentLogo, setCurrentLogo] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -25,8 +26,8 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const scrollToTop = (e: React.MouseEvent) => {
-    e.preventDefault();
+  const handleInicioClick = () => {
+    navigate('/');
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -60,13 +61,12 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
-            <a 
-              href="#" 
-              onClick={scrollToTop} 
+            <button 
+              onClick={handleInicioClick}
               className="text-white hover:text-blue-200 transition text-xl font-sans"
             >
               Inicio
-            </a>
+            </button>
             <Link to="/products" className="text-white hover:text-blue-200 transition text-xl font-sans">Nuestros Productos</Link>
             
             {/* About Dropdown */}
@@ -79,30 +79,30 @@ const Navbar = () => {
               </button>
               <div className="absolute left-0 mt-2 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="py-1">
-                  <Link to="https://tgps.abexacloud.com/" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 group/item">
+                  <a href="https://tgps.abexacloud.com/" target="_blank" rel="noopener noreferrer" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 group/item">
                     <span className="flex-1">TGPS</span>
                     <img 
                       src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/d26e192f-290f-9afb-3af6-d47f010a7b80.png"
                       alt="Company"
                       className="w-12 h-12 rounded object-cover opacity-0 group-hover/item:opacity-100 transition-opacity duration-200"
                     />
-                  </Link>
-                  <Link to="https://xbest.abexacloud.com/" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 group/item">
+                  </a>
+                  <a href="https://xbest.abexacloud.com/" target="_blank" rel="noopener noreferrer" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 group/item">
                     <span className="flex-1">XBEST</span>
                     <img 
                       src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/7f5bbff7-7ab0-125e-a1fb-22b0bc258828.png"
                       alt="Team"
                       className="w-12 h-12 rounded object-cover opacity-0 group-hover/item:opacity-100 transition-opacity duration-200"
                     />
-                  </Link>
-                  <Link to="https://tgps.abexacloud.com/Usuario/LoginWA" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 group/item">
+                  </a>
+                  <a href="https://tgps.abexacloud.com/Usuario/LoginWA" target="_blank" rel="noopener noreferrer" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 group/item">
                     <span className="flex-1">MOVIL</span>
                     <img 
                       src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/277276c7-11a2-4a5e-3bea-434bd81e4ff0.png"
                       alt="Company"
                       className="w-12 h-12 rounded object-cover opacity-0 group-hover/item:opacity-100 transition-opacity duration-200"
                     />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -121,16 +121,15 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden">
             <div className="flex flex-col space-y-4 pt-4 pb-3 px-4">
-              <a 
-                href="#" 
-                onClick={(e) => {
-                  scrollToTop(e);
+              <button 
+                onClick={() => {
+                  handleInicioClick();
                   setIsOpen(false);
                 }} 
-                className="text-white hover:text-blue-200 transition text-lg"
+                className="text-white hover:text-blue-200 transition text-lg text-left"
               >
                 Inicio
-              </a>
+              </button>
               <Link 
                 to="/products"
                 className="text-white hover:text-blue-200 transition text-lg"
@@ -148,8 +147,10 @@ const Navbar = () => {
                   Intranets <ChevronDown className={`ml-1 h-4 w-4 transform transition-transform ${isAboutOpen ? 'rotate-180' : ''}`} />
                 </button>
                 <div className={`pl-4 mt-2 space-y-4 ${isAboutOpen ? 'block' : 'hidden'}`}>
-                  <Link 
-                    to="https://tgps.abexacloud.com/" 
+                  <a 
+                    href="https://tgps.abexacloud.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
                     className="flex items-center text-white hover:text-blue-200 transition gap-3"
                     onClick={() => setIsOpen(false)}
                   >
@@ -159,9 +160,11 @@ const Navbar = () => {
                       alt="Company"
                       className="w-10 h-10 rounded object-cover"
                     />
-                  </Link>
-                  <Link 
-                    to="https://xbest.abexacloud.com/" 
+                  </a>
+                  <a 
+                    href="https://xbest.abexacloud.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
                     className="flex items-center text-white hover:text-blue-200 transition gap-3"
                     onClick={() => setIsOpen(false)}
                   >
@@ -171,9 +174,11 @@ const Navbar = () => {
                       alt="Team"
                       className="w-10 h-10 rounded object-cover"
                     />
-                  </Link>
-                  <Link 
-                    to="https://tgps.abexacloud.com/Usuario/LoginWA" 
+                  </a>
+                  <a 
+                    href="https://tgps.abexacloud.com/Usuario/LoginWA" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
                     className="flex items-center text-white hover:text-blue-200 transition gap-3"
                     onClick={() => setIsOpen(false)}
                   >
@@ -183,7 +188,7 @@ const Navbar = () => {
                       alt="Company"
                       className="w-10 h-10 rounded object-cover"
                     />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
