@@ -13,8 +13,8 @@ const Nosotros = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content with Shadow */}
-          <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+          {/* Text Content */}
+          <div>
             <h3 className="text-2xl font-bold mb-6 text-gray-800">
               Líderes en Tecnología para el Transporte
             </h3>
