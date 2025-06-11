@@ -15,6 +15,7 @@ const ProductDetail = React.lazy(() => import('./pages/Products/ProductDetail'))
 const LogoSlider = React.lazy(() => import('./components/LogoSlider'));
 const ScrollToTop = React.lazy(() => import('./components/ScrollToTop'));
 const Nosotros = React.lazy(() => import('./components/Nosotros'));
+const FloatingWhatsApp = React.lazy(() => import('./components/FloatingWhatsApp'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(() => {
@@ -60,6 +61,7 @@ function App() {
             <Route path="/products/:id" element={<ProductDetail />} />
           </Routes>
           <Footer />
+          <FloatingWhatsApp />
         </div>
       </Suspense>
     </Router>
