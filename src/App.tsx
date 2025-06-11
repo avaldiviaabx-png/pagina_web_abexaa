@@ -14,6 +14,7 @@ const ProductsPage = React.lazy(() => import('./pages/Products'));
 const ProductDetail = React.lazy(() => import('./pages/Products/ProductDetail'));
 const LogoSlider = React.lazy(() => import('./components/LogoSlider'));
 const ScrollToTop = React.lazy(() => import('./components/ScrollToTop'));
+const Nosotros = React.lazy(() => import('./components/Nosotros'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(() => {
@@ -50,6 +51,7 @@ function App() {
                   <Services />
                   <Testimonials />
                   <Projects />
+                  <Nosotros />
                   <LogoSlider />
                 </>
               }
