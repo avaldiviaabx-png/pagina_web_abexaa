@@ -8,6 +8,7 @@ export const products = [
     name: ' GPS ABEJA',
     description:'Máquina GPS multifuncional para transporte público e optimizado para obtener el control de frecuencias entre buses de transporte urbano a través de relojes virtuales.', 
     category: 'GPS',
+    model3DUrl: '/models/gps-abeja.glb', // Ruta a tu archivo GLB
     longDescription: 
       'Este equipo está optimizado para obtener el control de frecuencias entre buses de transporte urbano a través de relojes virtuales. Este sistema permite tener un control en línea del recorrido, velocidad y proximidad entre unidades de transporte urbano. ',
       
@@ -61,6 +62,7 @@ export const products = [
     description: 'Equipo para gestionar y facilitar el proceso de pago de pasajeros en el transporte urbano, mediante un método de recaudo electrónico seguro .',
     
     category: 'RECAUDO',
+    model3DUrl: '/models/validador-mpos.glb', // Ruta a tu archivo GLB
     longDescription: 'Dispositivo electrónico diseñada para la venta de boletos electrónicos en buses de transporte público es de fácil uso para el operador y la empresa, la venta de los pasajes es en tiempo real y permite identificar zonas de alto índice demanda del usuario. Permite conocer el comportamiento de los usuarios. Este dispositivo esta integrado a la plataforma de recaudo electrónico.',
     specifications: [
      'Gaveta hermética metálica, para una buena protección.',
@@ -93,6 +95,7 @@ export const products = [
     description: 'Impresora PRIXON Impresora Portátil con Cortador Automático; Impresora Térmica de interfaz USB',
     
     category: 'IMPRESORA',
+    model3DUrl: '/models/impresora-prixon.glb', // Ruta a tu archivo GLB
     longDescription: 'La Impresora PRIXON es una solución compacta y eficiente diseñada para impresión térmica de alta velocidad, ideal para, logística, tickets POS y aplicaciones móviles. Con un ancho de impresión de 80mm (3 pulgadas) y tecnología térmica directa, ofrece resultados nítidos y rápidos sin necesidad de tinta o cinta',
     features: [
      
@@ -128,6 +131,7 @@ export const products = [
     description: 'Fuente de alimentación robusta y eficiente diseñada para alimentar equipos GPS y dispositivos electrónicos en entornos móviles o instalaciones fijas .',
     
     category: 'POWER',
+    model3DUrl: '/models/fuente-poder.glb', // Ruta a tu archivo GLB
     longDescription: 'Fuente de alimentación robusta y eficiente diseñada para alimentar equipos GPS y dispositivos electrónicos en entornos móviles o instalaciones fijas. Compatible con un amplio rango de voltaje de entrada (12V a 30V DC), lo que la hace ideal para su uso en vehículos ',
     features: [
       
