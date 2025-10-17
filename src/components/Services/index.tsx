@@ -23,7 +23,7 @@ const services = [
     title: 'T-PRO',
     description: 'Software Programacion de Flota y Personal.',
     details: 'Plafatorma de gestiòn de programaciòn de flota vehicular. Realiza programaciones de horarios de Ruta. Reprogramaciones en tiempo real.',
-    gradient: 'bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10'
+    gradient: 'bg-gray'
   },
   {
     image: 'https://mcusercontent.com/c379e3356454ef2a14873d293/images/c923527a-cb20-f1ff-0add-1d21b1b82b91.png',
