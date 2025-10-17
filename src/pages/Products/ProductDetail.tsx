@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { products } from './ProductCatalog';
-import { ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MessageCircle, Box, ImageIcon } from 'lucide-react';
+import Product3DViewer, { Product3DLoader } from '../../components/Product3DViewer';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -10,6 +11,7 @@ const ProductDetail = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [activeTab, setActiveTab] = useState<'features' | 'specifications'>('features');
   const [showAll, setShowAll] = useState(false);
+  const [viewMode, setViewMode] = useState<'2d' | '3d'>('2d');
 
   const INITIAL_ITEMS_COUNT = 3;
 
@@ -63,30 +65,71 @@ const ProductDetail = () => {
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="relative p-8">
-              <div className="h-[400px] rounded-lg overflow-hidden bg-gray-50">
-                <div className="relative h-full">
-                  <img
-                    src={product.gallery[currentImage]}
-                    alt={product.name}
-                    className="w-full h-full object-contain"
-                  />
-                  {product.gallery.length > 1 && (
-                    <>
-                      <button
-                        onClick={prevImage}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full transition-all shadow-lg"
-                      >
-                        <ChevronLeft className="w-6 h-6" />
-                      </button>
-                      <button
-                        onClick={nextImage}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full transition-all shadow-lg"
-                      >
-                        <ChevronRight className="w-6 h-6" />
-                      </button>
-                    </>
-                  )}
+              {product.model3DUrl && (
+                <div className="flex gap-2 mb-4">
+                  <button
+                    onClick={() => setViewMode('2d')}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
+                      viewMode === '2d'
+                        ? 'bg-blue-600 text-white shadow-md'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    <ImageIcon className="w-4 h-4" />
+                    <span>Imagenes</span>
+                  </button>
+                  <button
+                    onClick={() => setViewMode('3d')}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
+                      viewMode === '3d'
+                        ? 'bg-blue-600 text-white shadow-md'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    <Box className="w-4 h-4" />
+                    <span>Vista 3D</span>
+                  </button>
                 </div>
+              )}
+              <div className="h-[400px] rounded-lg overflow-hidden bg-gray-50">
+                {viewMode === '2d' ? (
+                  <div className="relative h-full">
+                    <img
+                      src={product.gallery[currentImage]}
+                      alt={product.name}
+                      className="w-full h-full object-contain"
+                    />
+                    {product.gallery.length > 1 && (
+                      <>
+                        <button
+                          onClick={prevImage}
+                          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full transition-all shadow-lg"
+                        >
+                          <ChevronLeft className="w-6 h-6" />
+                        </button>
+                        <button
+                          onClick={nextImage}
+                          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full transition-all shadow-lg"
+                        >
+                          <ChevronRight className="w-6 h-6" />
+                        </button>
+                      </>
+                    )}
+                  </div>
+                ) : product.model3DUrl ? (
+                  <div className="relative h-full">
+                    <Suspense fallback={<Product3DLoader />}>
+                      <Product3DViewer modelUrl={product.model3DUrl} className="h-full" />
+                    </Suspense>
+                    <div className="absolute bottom-4 left-4 bg-black/70 text-white text-xs px-3 py-2 rounded-lg">
+                      Arrastra para rotar • Scroll para zoom
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center h-full text-gray-500">
+                    <p>Modelo 3D no disponible</p>
+                  </div>
+                )}
               </div>
 
               {product.gallery.length > 1 && (
