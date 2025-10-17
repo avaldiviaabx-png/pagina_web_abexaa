@@ -65,7 +65,7 @@ const ProductDetail = () => {
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="relative p-8">
-              {product.model3DUrl && (
+              {product.model3DUrl && product.model3DUrl.trim() !== '' && (
                 <div className="flex gap-2 mb-4">
                   <button
                     onClick={() => setViewMode('2d')}
@@ -116,13 +116,13 @@ const ProductDetail = () => {
                       </>
                     )}
                   </div>
-                ) : product.model3DUrl ? (
+                ) : product.model3DUrl && product.model3DUrl.trim() !== '' ? (
                   <div className="relative h-full">
                     <Suspense fallback={<Product3DLoader />}>
                       <Product3DViewer modelUrl={product.model3DUrl} className="h-full" />
                     </Suspense>
                     <div className="absolute bottom-4 left-4 bg-black/70 text-white text-xs px-3 py-2 rounded-lg">
-                      Arrastra para rotar • Scroll para zoom
+                      Interactúa con el modelo 3D
                     </div>
                   </div>
                 ) : (

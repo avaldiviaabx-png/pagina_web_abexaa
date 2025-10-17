@@ -6,9 +6,9 @@ export const products = [
     id: 'KIT MPOS ABEJA',
     image: 'https://mcusercontent.com/c379e3356454ef2a14873d293/images/7f68eef2-d8e0-0ef1-88a1-f0e8cd9679ca.png',
     name: ' GPS ABEJA',
-    description:'Máquina GPS multifuncional para transporte público e optimizado para obtener el control de frecuencias entre buses de transporte urbano a través de relojes virtuales.', 
+    description:'Máquina GPS multifuncional para transporte público e optimizado para obtener el control de frecuencias entre buses de transporte urbano a través de relojes virtuales.',
     category: 'GPS',
-    model3DUrl: 'https://my.spline.design/dynamiciphonemockup-31184351db69a8db567e0b6583be3c82/',
+    model3DUrl: '',
     longDescription: 
       'Este equipo está optimizado para obtener el control de frecuencias entre buses de transporte urbano a través de relojes virtuales. Este sistema permite tener un control en línea del recorrido, velocidad y proximidad entre unidades de transporte urbano. ',
       
@@ -60,9 +60,9 @@ export const products = [
     image: 'https://mcusercontent.com/c379e3356454ef2a14873d293/images/5950b7e7-dea6-0fa8-e14c-2f339f35e525.png',
     name: 'VALIDADOR MPOS ',
     description: 'Equipo para gestionar y facilitar el proceso de pago de pasajeros en el transporte urbano, mediante un método de recaudo electrónico seguro .',
-    
+
     category: 'RECAUDO',
-    model3DUrl: 'https://sketchfab.com/models/ef11144781314398b787c2938d64f988', 
+    model3DUrl: '', 
     longDescription: 'Dispositivo electrónico diseñada para la venta de boletos electrónicos en buses de transporte público es de fácil uso para el operador y la empresa, la venta de los pasajes es en tiempo real y permite identificar zonas de alto índice demanda del usuario. Permite conocer el comportamiento de los usuarios. Este dispositivo esta integrado a la plataforma de recaudo electrónico.',
     specifications: [
      'Gaveta hermética metálica, para una buena protección.',
@@ -93,9 +93,9 @@ export const products = [
     image: 'https://mcusercontent.com/c379e3356454ef2a14873d293/images/21eff77c-569b-eaab-a85e-a81e31acc378.png',
     name: 'IMPRESORA PRIXON',
     description: 'Impresora PRIXON Impresora Portátil con Cortador Automático; Impresora Térmica de interfaz USB',
-    
+
     category: 'IMPRESORA',
-    model3DUrl: 'https://tu-servidor.com/modelos/impresora-prixon.glb',
+    model3DUrl: '',
     longDescription: 'La Impresora PRIXON es una solución compacta y eficiente diseñada para impresión térmica de alta velocidad, ideal para, logística, tickets POS y aplicaciones móviles. Con un ancho de impresión de 80mm (3 pulgadas) y tecnología térmica directa, ofrece resultados nítidos y rápidos sin necesidad de tinta o cinta',
     features: [
      
@@ -129,9 +129,9 @@ export const products = [
     image: 'https://mcusercontent.com/c379e3356454ef2a14873d293/images/97015ffd-339a-dd19-05f4-99d915cca92b.png',
     name: 'FUENTE DE PODER GPS',
     description: 'Fuente de alimentación robusta y eficiente diseñada para alimentar equipos GPS y dispositivos electrónicos en entornos móviles o instalaciones fijas .',
-    
+
     category: 'POWER',
-    model3DUrl: 'https://tu-servidor.com/modelos/fuente-poder.glb',
+    model3DUrl: '',
     longDescription: 'Fuente de alimentación robusta y eficiente diseñada para alimentar equipos GPS y dispositivos electrónicos en entornos móviles o instalaciones fijas. Compatible con un amplio rango de voltaje de entrada (12V a 30V DC), lo que la hace ideal para su uso en vehículos ',
     features: [
       
