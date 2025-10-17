@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { AlertCircle } from 'lucide-react';
 import Spline from '@splinetool/react-spline';
 
@@ -9,6 +9,8 @@ interface SplineViewerProps {
 
 const SplineViewer: React.FC<SplineViewerProps> = ({ sceneUrl, onError }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isMouseOver, setIsMouseOver] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handleLoad = () => {
     setIsLoading(false);
@@ -19,8 +21,30 @@ const SplineViewer: React.FC<SplineViewerProps> = ({ sceneUrl, onError }) => {
     if (onError) onError();
   };
 
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (isMouseOver) {
+        e.preventDefault();
+      }
+    };
+
+    container.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      container.removeEventListener('wheel', handleWheel);
+    };
+  }, [isMouseOver]);
+
   return (
-    <div className="w-full h-full relative">
+    <div
+      ref={containerRef}
+      className="w-full h-full relative"
+      onMouseEnter={() => setIsMouseOver(true)}
+      onMouseLeave={() => setIsMouseOver(false)}
+    >
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 z-10">
           <div className="text-center">
