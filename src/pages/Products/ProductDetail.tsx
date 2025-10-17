@@ -169,7 +169,7 @@ const ProductDetail = () => {
                     }}
                     className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                       activeTab === 'features'
-                        ? 'bg-white text-blue-700 shadow-sm'
+                        ? 'bg-white text-blue-700 shadow-xl'
                         : 'bg-transparent text-gray-600 hover:bg-gray-100'
                     }`}
                   >
