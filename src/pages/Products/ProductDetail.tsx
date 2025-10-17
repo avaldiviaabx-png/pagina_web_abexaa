@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { products } from './ProductCatalog';
-import { ChevronLeft, ChevronRight, MessageCircle, ChevronDown, ChevronUp } from 'lucide-react';
-import Product3DViewer, { Product3DLoader } from '../../components/Product3DViewer';
+import { ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const product = products.find(p => p.id === id);
   const [currentImage, setCurrentImage] = useState(0);
-  const [activeTab, setActiveTab] = useState<'features' | 'specifications' | '3d'>('features');
+  const [activeTab, setActiveTab] = useState<'features' | 'specifications'>('features');
   const [showAll, setShowAll] = useState(false);
 
-  // Number of items to show initially
   const INITIAL_ITEMS_COUNT = 3;
 
   if (!product) {
@@ -45,7 +43,7 @@ const ProductDetail = () => {
     setCurrentImage((prev) => (prev - 1 + product.gallery.length) % product.gallery.length);
   };
 
-  const displayedItems = showAll 
+  const displayedItems = showAll
     ? (activeTab === 'features' ? product.features : product.specifications)
     : (activeTab === 'features' ? product.features : product.specifications).slice(0, INITIAL_ITEMS_COUNT);
 
@@ -62,72 +60,43 @@ const ProductDetail = () => {
           Regresar a los productos
         </button>
 
-        {/* Product Details Card */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Image Gallery / 3D Viewer */}
-            <div className="relative">
-              {/* Tab selector for Images vs 3D */}
-              <div className="flex mb-4 bg-gray-100 rounded-lg p-1">
-                <button
-                  onClick={() => setActiveTab('features')}
-                  className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
-                    activeTab !== '3d' ? 'bg-white text-blue-600 shadow-sm' : 'text-gray-600 hover:text-gray-800'
-                  }`}
-                >
-                  Imágenes
-                </button>
-                <button
-                  onClick={() => setActiveTab('3d')}
-                  className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
-                    activeTab === '3d' ? 'bg-white text-blue-600 shadow-sm' : 'text-gray-600 hover:text-gray-800'
-                  }`}
-                >
-                  Vista 3D
-                </button>
+            <div className="relative p-8">
+              <div className="h-[400px] rounded-lg overflow-hidden bg-gray-50">
+                <div className="relative h-full">
+                  <img
+                    src={product.gallery[currentImage]}
+                    alt={product.name}
+                    className="w-full h-full object-contain"
+                  />
+                  {product.gallery.length > 1 && (
+                    <>
+                      <button
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full transition-all shadow-lg"
+                      >
+                        <ChevronLeft className="w-6 h-6" />
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full transition-all shadow-lg"
+                      >
+                        <ChevronRight className="w-6 h-6" />
+                      </button>
+                    </>
+                  )}
+                </div>
               </div>
 
-              {/* Content area */}
-              <div className="h-[400px] rounded-lg overflow-hidden">
-                {activeTab === '3d' ? (
-                  <React.Suspense fallback={<Product3DLoader />}>
-                    <Product3DViewer 
-                      modelUrl={product.model3DUrl} 
-                      className="w-full h-full"
-                    />
-                  </React.Suspense>
-                ) : (
-                  <div className="relative h-full">
-                    <img
-                      src={product.gallery[currentImage]}
-                      alt={product.name}
-                      className="w-full h-full object-contain"
-                    />
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full transition-colors"
-                    >
-                      <ChevronLeft className="w-6 h-6" />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full transition-colors"
-                    >
-                      <ChevronRight className="w-6 h-6" />
-                    </button>
-                  </div>
-                )}
-              </div>
-
-              {/* Thumbnail gallery - only show when not in 3D mode */}
-              {activeTab !== '3d' && (
-                <div className="flex gap-4 mt-4 px-4">
+              {product.gallery.length > 1 && (
+                <div className="flex gap-4 mt-4 overflow-x-auto pb-2">
                   {product.gallery.map((img, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImage(index)}
-                      className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors ${
-                        currentImage === index ? 'border-blue-600' : 'border-transparent'
+                      className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                        currentImage === index ? 'border-blue-600 shadow-md' : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
                       <img src={img} alt={`${product.name} ${index + 1}`} className="w-full h-full object-cover" />
@@ -135,18 +104,8 @@ const ProductDetail = () => {
                   ))}
                 </div>
               )}
-
-              {/* 3D Instructions - only show in 3D mode */}
-              {activeTab === '3d' && (
-                <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-                  <p className="text-sm text-blue-700 text-center">
-                    🖱️ Arrastra para rotar • 🔍 Scroll para zoom • ✋ Mantén presionado para mover
-                  </p>
-                </div>
-              )}
             </div>
 
-            {/* Product Info */}
             <div className="p-8">
               <div className="mb-6">
                 <div className="flex justify-between items-start mb-4">
@@ -158,7 +117,6 @@ const ProductDetail = () => {
                 <p className="text-gray-600 mb-6">{product.longDescription}</p>
               </div>
 
-              {/* Tabbed Interface for specifications */}
               <div className="bg-gray-50 rounded-xl p-6 mb-8">
                 <div className="flex space-x-4 mb-6">
                   <button
@@ -200,38 +158,25 @@ const ProductDetail = () => {
                       </li>
                     ))}
                   </ul>
-                  
+
                   {hasMore && (
                     <button
                       onClick={() => setShowAll(!showAll)}
-                      className={`flex items-center transition-colors gap-1 mt-4 ${
-                        activeTab === 'features' 
-                          ? 'text-blue-600 hover:text-blue-800'
-                          : 'text-blue-600 hover:text-blue-800'
-                      }`}
+                      className="flex items-center transition-colors gap-1 mt-4 text-blue-600 hover:text-blue-800"
                     >
-                      {showAll ? (
-                        <>
-                          Mostrar menos
-                        </>
-                      ) : (
-                        <>
-                          Mostrar mas
-                        </>
-                      )}
+                      {showAll ? 'Mostrar menos' : 'Mostrar mas'}
                     </button>
                   )}
                 </div>
-                </div>
-
-                <button
-                  onClick={handleWhatsApp}
-                  className="w-full py-4 bg-green-500 hover:bg-green-600 text-white rounded-xl flex items-center justify-center space-x-2 transition-colors"
-                >
-                  <MessageCircle className="w-6 h-6" />
-                  <span>Contactar via WhatsApp</span>
-                </button>
               </div>
+
+              <button
+                onClick={handleWhatsApp}
+                className="w-full py-4 bg-green-500 hover:bg-green-600 text-white rounded-xl flex items-center justify-center space-x-2 transition-colors"
+              >
+                <MessageCircle className="w-6 h-6" />
+                <span>Contactar via WhatsApp</span>
+              </button>
             </div>
           </div>
         </div>
