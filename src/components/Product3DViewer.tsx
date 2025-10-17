@@ -3,6 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment, ContactShadows } from '@react-three/drei';
 import { Mesh } from 'three';
 import { AlertCircle } from 'lucide-react';
+import Spline from '@splinetool/react-spline';
 
 interface Product3DModelProps {
   url: string;
@@ -34,6 +35,46 @@ const Product3DModel: React.FC<Product3DModelProps> = ({ url, onError }) => {
   }
 };
 
+const isSplineUrl = (url: string): boolean => {
+  return url.includes('spline.design') || url.includes('spline');
+};
+
+interface SplineViewerProps {
+  sceneUrl: string;
+  onError?: () => void;
+}
+
+const SplineViewer: React.FC<SplineViewerProps> = ({ sceneUrl, onError }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoad = () => {
+    setIsLoading(false);
+  };
+
+  const handleError = () => {
+    setIsLoading(false);
+    if (onError) onError();
+  };
+
+  return (
+    <div className="w-full h-full relative">
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 z-10">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Cargando modelo 3D de Spline...</p>
+          </div>
+        </div>
+      )}
+      <Spline
+        scene={sceneUrl}
+        onLoad={handleLoad}
+        style={{ width: '100%', height: '100%' }}
+      />
+    </div>
+  );
+};
+
 interface Product3DViewerProps {
   modelUrl: string;
   className?: string;
@@ -41,6 +82,7 @@ interface Product3DViewerProps {
 
 const Product3DViewer: React.FC<Product3DViewerProps> = ({ modelUrl, className = "" }) => {
   const [hasError, setHasError] = useState(false);
+  const isSpline = isSplineUrl(modelUrl);
 
   if (hasError) {
     return (
@@ -50,6 +92,14 @@ const Product3DViewer: React.FC<Product3DViewerProps> = ({ modelUrl, className =
           <p className="text-gray-700 font-medium mb-2">No se pudo cargar el modelo 3D</p>
           <p className="text-gray-500 text-sm">Verifica que la URL del modelo sea correcta y accesible</p>
         </div>
+      </div>
+    );
+  }
+
+  if (isSpline) {
+    return (
+      <div className={`w-full h-full ${className}`}>
+        <SplineViewer sceneUrl={modelUrl} onError={() => setHasError(true)} />
       </div>
     );
   }
