@@ -182,7 +182,7 @@ const ProductDetail = () => {
                     }}
                     className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                       activeTab === 'specifications'
-                        ? 'bg-blue-100 text-blue-700'
+                        ? 'bg-white text-blue-700 shadow-md'
                         : 'bg-transparent text-gray-600 hover:bg-gray-100'
                     }`}
                   >
