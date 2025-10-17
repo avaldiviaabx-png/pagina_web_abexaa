@@ -8,49 +8,13 @@ const images = [
 
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
-    // Preload images
-    const loadImages = async () => {
-      const imagePromises = images.map((src) => {
-        return new Promise((resolve, reject) => {
-          const img = new Image();
-          img.src = src;
-          img.onload = resolve;
-          img.onerror = reject;
-        });
-      });
-
-      try {
-        await Promise.all(imagePromises);
-        setImagesLoaded(true);
-      } catch (error) {
-        console.error('Error loading images:', error);
-      }
-    };
-
-    loadImages();
-  }, []);
-
-  useEffect(() => {
-    if (!imagesLoaded) return;
-
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [imagesLoaded]);
-
-  if (!imagesLoaded) {
-    return (
-      <div className="h-[65vh] bg-gray-100 flex items-center justify-center">
-        <div className="animate-pulse">
-          <div className="w-32 h-32 bg-gray-200 rounded-full"></div>
-        </div>
-      </div>
-    );
-  }
+  }, []);
 
   return (
     <section className="relative h-[75vh]" id="home">
@@ -66,7 +30,9 @@ const Hero = () => {
             src={img}
             alt={`Slide ${index + 1}`}
             className="w-full h-full object-cover md:object-cover"
-            loading="lazy"
+            loading={index === 0 ? 'eager' : 'lazy'}
+            fetchPriority={index === 0 ? 'high' : 'auto'}
+            decoding="async"
           />
         </div>
       ))}
