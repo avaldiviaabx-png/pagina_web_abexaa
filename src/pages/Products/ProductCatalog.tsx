@@ -8,7 +8,7 @@ export const products = [
     name: ' GPS ABEJA',
     description:'Máquina GPS multifuncional para transporte público e optimizado para obtener el control de frecuencias entre buses de transporte urbano a través de relojes virtuales.',
     category: 'GPS',
-    model3DUrl: '',
+    model3DUrl: 'https://prod.spline.design/Ayzu5MW25tvrZCtJ/scene.splinecode',
     longDescription: 
       'Este equipo está optimizado para obtener el control de frecuencias entre buses de transporte urbano a través de relojes virtuales. Este sistema permite tener un control en línea del recorrido, velocidad y proximidad entre unidades de transporte urbano. ',
       
