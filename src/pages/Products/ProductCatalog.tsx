@@ -62,7 +62,7 @@ export const products = [
     description: 'Equipo para gestionar y facilitar el proceso de pago de pasajeros en el transporte urbano, mediante un método de recaudo electrónico seguro .',
     
     category: 'RECAUDO',
-    model3DUrl: 'https://sketchfab.com/3d-models/gabeta-general-ef11144781314398b787c2938d64f988',
+    model3DUrl: 'https://sketchfab.com/models/ef11144781314398b787c2938d64f988/embed',
     longDescription: 'Dispositivo electrónico diseñada para la venta de boletos electrónicos en buses de transporte público es de fácil uso para el operador y la empresa, la venta de los pasajes es en tiempo real y permite identificar zonas de alto índice demanda del usuario. Permite conocer el comportamiento de los usuarios. Este dispositivo esta integrado a la plataforma de recaudo electrónico.',
     specifications: [
      'Gaveta hermética metálica, para una buena protección.',
