@@ -2,7 +2,7 @@ import React, { useState, Suspense } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { products } from './ProductCatalog';
 import { ChevronLeft, ChevronRight, MessageCircle, Box, ImageIcon } from 'lucide-react';
-import Product3DViewer, { Product3DLoader } from '../../components/Product3DViewer';
+import { Product3DViewerWithErrorHandling, Product3DLoader } from '../../components/Product3DViewer';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -119,7 +119,7 @@ const ProductDetail = () => {
                 ) : product.model3DUrl ? (
                   <div className="relative h-full">
                     <Suspense fallback={<Product3DLoader />}>
-                      <Product3DViewer modelUrl={product.model3DUrl} className="h-full" />
+                      <Product3DViewerWithErrorHandling modelUrl={product.model3DUrl} className="h-full" />
                     </Suspense>
                     <div className="absolute bottom-4 left-4 bg-black/70 text-white text-xs px-3 py-2 rounded-lg">
                       Arrastra para rotar • Scroll para zoom
