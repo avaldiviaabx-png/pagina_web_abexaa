@@ -1,31 +1,37 @@
-import React, { Suspense, useRef } from 'react';
+import React, { Suspense, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment, ContactShadows } from '@react-three/drei';
 import { Mesh } from 'three';
+import { AlertCircle } from 'lucide-react';
 
 interface Product3DModelProps {
   url: string;
+  onError?: () => void;
 }
 
-const Product3DModel: React.FC<Product3DModelProps> = ({ url }) => {
-  const { scene } = useGLTF(url);
-  const meshRef = useRef<Mesh>(null);
+const Product3DModel: React.FC<Product3DModelProps> = ({ url, onError }) => {
+  try {
+    const { scene } = useGLTF(url);
+    const meshRef = useRef<Mesh>(null);
 
-  // Optional: Add rotation animation
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-    }
-  });
+    useFrame((state) => {
+      if (meshRef.current) {
+        meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
+      }
+    });
 
-  return (
-    <primitive 
-      ref={meshRef}
-      object={scene} 
-      scale={[1, 1, 1]} 
-      position={[0, 0, 0]}
-    />
-  );
+    return (
+      <primitive
+        ref={meshRef}
+        object={scene}
+        scale={[1, 1, 1]}
+        position={[0, 0, 0]}
+      />
+    );
+  } catch (error) {
+    if (onError) onError();
+    return null;
+  }
 };
 
 interface Product3DViewerProps {
@@ -34,35 +40,47 @@ interface Product3DViewerProps {
 }
 
 const Product3DViewer: React.FC<Product3DViewerProps> = ({ modelUrl, className = "" }) => {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    return (
+      <div className={`w-full h-full flex items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 ${className}`}>
+        <div className="text-center p-6">
+          <AlertCircle className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
+          <p className="text-gray-700 font-medium mb-2">No se pudo cargar el modelo 3D</p>
+          <p className="text-gray-500 text-sm">Verifica que la URL del modelo sea correcta y accesible</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`w-full h-full ${className}`}>
       <Canvas
         camera={{ position: [0, 0, 5], fov: 50 }}
         style={{ background: 'linear-gradient(to bottom, #f8fafc, #e2e8f0)' }}
+        onCreated={({ gl }) => {
+          gl.setClearColor('#f8fafc');
+        }}
       >
         <Suspense fallback={null}>
-          {/* Lighting */}
           <ambientLight intensity={0.4} />
           <directionalLight position={[10, 10, 5]} intensity={1} />
           <pointLight position={[-10, -10, -10]} intensity={0.5} />
-          
-          {/* Environment for reflections */}
+
           <Environment preset="studio" />
-          
-          {/* 3D Model */}
-          <Product3DModel url={modelUrl} />
-          
-          {/* Ground shadow */}
-          <ContactShadows 
-            position={[0, -1.4, 0]} 
-            opacity={0.4} 
-            scale={10} 
-            blur={1.5} 
-            far={4.5} 
+
+          <Product3DModel url={modelUrl} onError={() => setHasError(true)} />
+
+          <ContactShadows
+            position={[0, -1.4, 0]}
+            opacity={0.4}
+            scale={10}
+            blur={1.5}
+            far={4.5}
           />
-          
-          {/* Controls */}
-          <OrbitControls 
+
+          <OrbitControls
             enablePan={true}
             enableZoom={true}
             enableRotate={true}
