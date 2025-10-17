@@ -160,7 +160,7 @@ const ProductDetail = () => {
                 <p className="text-gray-600 mb-6">{product.longDescription}</p>
               </div>
 
-              <div className="bg-gray-50 rounded-xl p-6 mb-8">
+              <div className="bg-white rounded-xl p-6 mb-8">
                 <div className="flex space-x-4 mb-6">
                   <button
                     onClick={() => {
