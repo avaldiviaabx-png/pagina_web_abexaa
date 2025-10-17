@@ -8,7 +8,7 @@ export const products = [
     name: ' GPS ABEJA',
     description:'Máquina GPS multifuncional para transporte público e optimizado para obtener el control de frecuencias entre buses de transporte urbano a través de relojes virtuales.', 
     category: 'GPS',
-    model3DUrl: 'https://tu-servidor.com/modelos/gps-abeja.glb',
+    model3DUrl: 'https://sketchfab.com/3d-models/gabeta-general-2-ef11144781314398b787c2938d64f988',
     longDescription: 
       'Este equipo está optimizado para obtener el control de frecuencias entre buses de transporte urbano a través de relojes virtuales. Este sistema permite tener un control en línea del recorrido, velocidad y proximidad entre unidades de transporte urbano. ',
       
