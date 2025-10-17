@@ -16,6 +16,7 @@ const LogoSlider = React.lazy(() => import('./components/LogoSlider'));
 const ScrollToTop = React.lazy(() => import('./components/ScrollToTop'));
 const Nosotros = React.lazy(() => import('./components/Nosotros'));
 const FloatingWhatsApp = React.lazy(() => import('./components/FloatingWhatsApp'));
+const AdminPage = React.lazy(() => import('./pages/Admin'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(() => {
@@ -59,6 +60,7 @@ function App() {
             />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:id" element={<ProductDetail />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
           <Footer />
           <FloatingWhatsApp />
