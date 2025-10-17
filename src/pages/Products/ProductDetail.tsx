@@ -215,7 +215,7 @@ const ProductDetail = () => {
 
               <button
                 onClick={handleWhatsApp}
-                className="w-full py-4 bg-white shadow-lg hover:bg-green-600 text-green rounded-xl flex items-center justify-center space-x-2 transition-colors"
+                className="w-full py-4 bg-white shadow-lg hover:bg-green-600 text-green-600 rounded-xl flex items-center justify-center space-x-2 transition-colors"
               >
                 <MessageCircle className="w-6 h-6" />
                 <span>Contactar via WhatsApp</span>
