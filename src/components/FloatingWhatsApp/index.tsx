@@ -16,7 +16,12 @@ const FloatingWhatsApp = () => {
         className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group animate-pulse"
         aria-label="Contactar por WhatsApp"
       >
-        <MessageCircle className="w-6 h-6" />
+          {/* Imagen del ícono */}
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+          alt="WhatsApp"
+          className="w-6 h-6"
+        />
         
         {/* Tooltip */}
         <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
