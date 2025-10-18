@@ -24,15 +24,12 @@ const ProductsPage = () => {
             <p className="text-3xl text-white/90 max-w-9xl animate-fade-up animation-delay-200">
             "Optimización de rutas y monitoreo constante para maximizar la eficiencia del transporte."
             </p>
-             
-          </div>
-          
+          </div>         
         </div>
         <LogoSlider/>
       </div>
 
-
-      {/* Catalog Section */}
+      {/* Catalog Section */} 
       <div className="container mx-auto px-6 pt-20   ">
         <div className="mb-12 h-[100px]">
           <h2 className="text-3xl font-bold text-blue-800 mb-4 text-center ">MODELOS</h2>
