@@ -14,7 +14,7 @@ const ProductCard = ({ id, image, name, description, category }: ProductCardProp
   const navigate = useNavigate();
 
   return (
-    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col animate-fade-up animation-delay-200">
       <div className="h-60 overflow-hidden rounded-t-xl">
         <img
           src={image}
