@@ -190,7 +190,7 @@ const ProductDetail = () => {
                   </button>
                 </div>
 
-                <div className="bg-white rounded-lg p-6 shadow-sm">
+                <div className="bg-white rounded-lg p-6 ">
                   <ul className="space-y-3">
                     {displayedItems.map((item, index) => (
                       <li key={index} className="flex items-center text-gray-700">
