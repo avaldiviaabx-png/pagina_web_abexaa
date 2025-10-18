@@ -20,7 +20,7 @@ const FloatingWhatsApp = () => {
         <img 
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
           alt="WhatsApp"
-          className="w-6 h-6"
+          className="w-10 h-10"
         />
         
         {/* Tooltip */}
