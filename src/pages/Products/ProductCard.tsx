@@ -34,7 +34,7 @@ const ProductCard = ({ id, image, name, description, category }: ProductCardProp
          
           <button 
             onClick={() => navigate(`/products/${id}`)}
-            className="px-4 py-2 w-full bg-gradient-to-r from-blue-800 to-blue-500 text-white rounded hover:bg-blue-700 transition"
+            className="px-4 py-2 w-full mt-auto bg-gradient-to-r from-blue-800 to-blue-500 text-white rounded hover:bg-blue-700 transition"
           >
             Ver detalles
           </button>
