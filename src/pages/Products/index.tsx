@@ -21,7 +21,7 @@ const ProductsPage = () => {
             <h1 className="text-8xl font-bold bg-gradient-to-r from-blue-500 to-blue-300 bg-clip-text text-transparent ">
             NUESTROS VALIDADORES
             </h1>
-            <p className="text-xl text-center text-white/90 max-w-4xl animate-fade-up animation-delay-200">
+            <p className="text-xl text-white/90 max-w-4xl animate-fade-up animation-delay-200">
             "Optimización de rutas y monitoreo constante para maximizar la eficiencia del transporte."
             </p>
             
