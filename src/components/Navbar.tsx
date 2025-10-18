@@ -77,14 +77,14 @@ const Navbar = () => {
               >
                 Intranets <ChevronDown className="ml-1 h-4 w-4" />
               </button>
-              <div className="absolute left-0 mt-2 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0  group-hover:opacity-100  transition-all duration-200"> 
+              <div className="absolute left-0 mt-2 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="py-1">
                   <a href="https://tgps.abexacloud.com/" target="_blank" rel="noopener noreferrer" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 group/item">
                     <span className="flex-1">TGPS</span>
                     <img 
                       src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/d26e192f-290f-9afb-3af6-d47f010a7b80.png"
                       alt="Company"
-                      className="w-12 h-12 rounded object-cover opacity-0 group-hover/item:opacity-100 transition-opacity duration-200"
+                      className="w-12 h-12 rounded object-cover "
                     />
                   </a>
                   <a href="https://xbest.abexacloud.com/" target="_blank" rel="noopener noreferrer" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 group/item">
