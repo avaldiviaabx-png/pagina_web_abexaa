@@ -84,7 +84,7 @@ const Navbar = () => {
                     <img 
                       src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/d26e192f-290f-9afb-3af6-d47f010a7b80.png"
                       alt="Company"
-                      className="w-12 h-12 rounded object-cover "
+                      className="w-12 h-12 rounded object-cover"
                     />
                   </a>
                   <a href="https://xbest.abexacloud.com/" target="_blank" rel="noopener noreferrer" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 group/item">
@@ -92,7 +92,7 @@ const Navbar = () => {
                     <img 
                       src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/7f5bbff7-7ab0-125e-a1fb-22b0bc258828.png"
                       alt="Team"
-                      className="w-12 h-12 rounded object-cover opacity-0 group-hover/item:opacity-100 transition-opacity duration-200"
+                      className="w-12 h-12 rounded object-cover "
                     />
                   </a>
                   <a href="https://tgps.abexacloud.com/Usuario/LoginWA" target="_blank" rel="noopener noreferrer" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 group/item">
@@ -100,7 +100,7 @@ const Navbar = () => {
                     <img 
                       src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/277276c7-11a2-4a5e-3bea-434bd81e4ff0.png"
                       alt="Company"
-                      className="w-12 h-12 rounded object-cover opacity-0 group-hover/item:opacity-100 transition-opacity duration-200"
+                      className="w-12 h-12 rounded object-cover "
                     />
                   </a>
                 </div>
