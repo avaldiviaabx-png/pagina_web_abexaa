@@ -51,7 +51,7 @@ const ProductModal = ({ isOpen, onClose, product }: ProductModalProps) => {
                 </ul>
               </div>
             )}
-            <div className="mt-6">
+            <div className="mt-6"> 
               <span className="text-3xl font-bold text-blue-600">{product.price}</span>
             </div>
           </div>
