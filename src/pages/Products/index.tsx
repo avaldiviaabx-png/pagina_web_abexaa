@@ -18,7 +18,7 @@ const ProductsPage = () => {
         </div>
         <div className="relative h-full flex items-center justify-center text-center px-6">
           <div>
-            <h1 className="text-7xl font-bold bg-gradient-to-r from-blue-500 to-blue-800 bg-clip-text text-transparent ">
+            <h1 className="text-7xl font-bold bg-gradient-to-r from-blue-500 to-blue-300 bg-clip-text text-transparent ">
             NUESTROS VALIDADORES
             </h1>
             <p className="text-xl text-white/90 max-w-2xl animate-fade-up animation-delay-200">
