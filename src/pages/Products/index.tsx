@@ -24,7 +24,7 @@ const ProductsPage = () => {
             <p className="text-xl text-white/90 max-w-4xl animate-fade-up animation-delay-200">
             "Optimización de rutas y monitoreo constante para maximizar la eficiencia del transporte."
             </p>
-            
+             
           </div>
           
         </div>
