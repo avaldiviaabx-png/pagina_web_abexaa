@@ -33,7 +33,7 @@ const ProductDetail = () => {
 
   const handleWhatsApp = () => {
     const message = `Hi, I'm interested in the ${product.name}. Could you provide more information?`;
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/977704777?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
