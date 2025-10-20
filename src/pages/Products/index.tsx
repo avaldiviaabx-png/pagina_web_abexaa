@@ -30,11 +30,16 @@ const ProductsPage = () => {
       </div>
 
       {/* Catalog Section */} 
-      <div className="container mx-auto px-6 pt-20   ">
-        <div className="mb-12 h-[100px]">
-          <h2 className="text-3xl font-bold text-blue-800 mb-4 text-center ">MODELOS</h2>
-          <p className="text-gray-600 text-center text-xl">Optimiza tus rutas y monitoreo constante para maximizar la eficiencia</p>
-        </div>
+      <div className="container mx-auto px-6 pt-20">
+  <div className="mb-12 h-[100px]">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800 mb-4 text-center">
+      MODELOS
+    </h2>
+    <p className="text-base sm:text-lg md:text-xl text-gray-600 text-center">
+      Optimiza tus rutas y monitoreo constante para maximizar la eficiencia
+    </p>
+  </div>
+</div>
         <div className=''>
         <ProductCatalog />
         </div>
