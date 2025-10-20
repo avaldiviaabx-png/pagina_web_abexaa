@@ -26,9 +26,8 @@ const ProductsPage = () => {
             </p>
           </div>
         </div>
-        <LogoSlider/>
+        <LogoSlider/> 
       </div>
-
       {/* Catalog Section */} 
       <div className="container mx-auto px-6 pt-20">
         <div className="mb-12 h-[100px]">
