@@ -18,7 +18,7 @@ const ProductsPage = () => {
         </div>
         <div className="relative h-full flex items-center justify-center text-center px-6">
           <div>
-            <h1 className="text-8xl md:text-base font-bold bg-gradient-to-r from-blue-500 to-blue-300 bg-clip-text text-transparent animate-fade-up animation-delay-200">
+            <h1 className="text-8xl  font-bold bg-gradient-to-r from-blue-500 to-blue-300 bg-clip-text text-transparent animate-fade-up animation-delay-200">
             NUESTROS VALIDADORES
             </h1>
             <p className="text-3xl text-white/90 max-w-9xl animate-fade-up animation-delay-200">
@@ -30,7 +30,7 @@ const ProductsPage = () => {
       </div>
 
       {/* Catalog Section */} 
-      <div className="container mx-auto px-6 pt-20   ">
+      <div className="container mx-auto px-6 pt-20">
         <div className="mb-12 h-[100px]">
           <h2 className="text-3xl font-bold text-blue-800 mb-4 text-center ">MODELOS</h2>
           <p className="text-gray-600 text-center text-xl">Optimiza tus rutas y monitoreo constante para maximizar la eficiencia</p>
