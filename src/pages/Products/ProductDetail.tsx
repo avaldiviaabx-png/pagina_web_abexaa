@@ -122,7 +122,7 @@ const ProductDetail = () => {
                       <Product3DViewer modelUrl={product.model3DUrl} className="h-full" />
                     </Suspense>
                   <div className="absolute bottom-4 left-4 bg-black/70 text-white text-xs px-3 py-2 rounded-lg">
-                     
+                    Diseño exclusivo Abexa
                     </div> 
                   </div>
                 ) : (
