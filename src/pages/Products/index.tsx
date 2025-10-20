@@ -7,7 +7,7 @@ const ProductsPage = () => {
   return (
     <div className="min-h-screen bg-white ">
       {/* Hero Section */}
-      <div className="relative h-[75vh] mb-16">
+      <div className="relative h-[60vh] md:h-[75vh] mb-16">
         <div className="absolute inset-0">
           <img
             src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/a10a3858-cd30-dc2d-e2b5-1454b2fa39ba.jpg"
@@ -16,15 +16,15 @@ const ProductsPage = () => {
           />
           <div className="absolute inset-0 bg-blue-900/70" />
         </div>
-        <div className="relative h-full flex items-center justify-center text-center px-6">
-          <div>
-            <h1 className="text-8xl  font-bold bg-gradient-to-r from-blue-500 to-blue-300 bg-clip-text text-transparent animate-fade-up animation-delay-200">
+        <div className="relative h-full flex items-center justify-center text-center px-4 md:px-6">
+          <div className="max-w-6xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-gradient-to-r from-blue-500 to-blue-300 bg-clip-text text-transparent animate-fade-up animation-delay-200 mb-4 md:mb-6">
             NUESTROS VALIDADORES
             </h1>
-            <p className="text-3xl text-white/90 max-w-9xl animate-fade-up animation-delay-200">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-white/90 max-w-4xl mx-auto animate-fade-up animation-delay-200 px-2">
             "Optimización de rutas y monitoreo constante para maximizar la eficiencia del transporte."
             </p>
-          </div>         
+          </div>
         </div>
         <LogoSlider/>
       </div>
