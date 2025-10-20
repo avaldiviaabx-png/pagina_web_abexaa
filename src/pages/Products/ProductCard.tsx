@@ -33,7 +33,7 @@ const ProductCard = ({ id, image, name, description, category }: ProductCardProp
         <div className="mt-auto">
           <button
             onClick={() => navigate(`/products/${id}`)}
-            className="px-4 py-2 w-full bg-gradient-to-r from-blue-700 to-blue-500 text-white rounded transform hover:scale-105 transition duration-300"
+            className="px-4 py-2 w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded transform hover:scale-105 transition duration-300"
           >
             Ver detalles
           </button>
