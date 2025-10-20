@@ -82,7 +82,7 @@ const ProductDetail = () => {
                     onClick={() => setViewMode('3d')}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
                       viewMode === '3d'
-                        ? 'bg-blue-600 text-white shadow-md'
+                        ? 'bg-blue-300 text-white shadow-md'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
