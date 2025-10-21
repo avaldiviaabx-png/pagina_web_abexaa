@@ -57,7 +57,7 @@ const FloatingImage = () => {
             <img
               src="https://mcusercontent.com/c379e3356454ef2a14873d293/images/890473da-7e53-d37d-2344-b8841675a559.png"
               alt="Building"
-              className="w-80 h-100 object-contain   "
+              className="w-80 h-100 object-contain"
             />
           </div>
         
@@ -65,7 +65,7 @@ const FloatingImage = () => {
           
 
           <p className="text-gray-600 text-lg mt-8 text-center max-w-xl">
-           
+            
           </p>
         </div>
       </div>
